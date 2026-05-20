@@ -1,0 +1,14 @@
+,benchmark,dynamic
+Total Return,0.2551,0.4386
+Ann. Return,0.0835,0.137
+Ann. Volatility,0.2587,0.2742
+Sharpe Ratio,0.3228,0.4994
+Max Drawdown,-0.301,-0.3211
+Calmar Ratio,0.2775,0.4265
+Win Rate,0.5266,0.5322
+Skewness,-0.3781,-0.1232
+Kurtosis,6.1577,7.4962
+N Days,714.0,714.0
+Ann. Alpha,0.085,0.1373
+Track. Error,0.0453,0.0528
+Info. Ratio,1.8754,2.6016

@@ -1,0 +1,32 @@
+factor,ICIR_all,t_all,ICIR_normal,t_normal,ICIR_abnormal,t_abnormal,regime_sensitivity,abs_sensitivity,in_benchmark,in_normal,in_abnormal,description
+ILLIQ,4.7874,10.5207,4.0679,8.067,8.1286,7.6978,4.0607,4.0607,True,True,True,Amihud illiquidity. High ILLIQ stocks are harder to trade; liquidity premium.
+VOL_orth_ZS,-4.5905,-10.0881,-5.3464,-10.6023,-2.3759,-2.25,2.9705,-2.9705,True,True,True,Idiosyncratic volatility (orthogonalised). Low-vol anomaly.
+TO_1M,-3.6462,-8.0128,-4.2651,-8.4579,-1.4045,-1.33,2.8606,-2.8606,True,True,False,1-month average daily turnover. High turnover ↔ active trading / speculation.
+Beta_orth_ZS,1.0716,2.355,0.6349,1.2591,2.7241,2.5797,2.0892,2.0892,True,False,True,Market beta (orthogonalised). Systematic risk exposure.
+GrossIncomeRatioTTM,1.0115,2.2228,0.668,1.3247,2.5397,2.4051,1.8717,1.8717,True,False,True,Gross margin (TTM). Pricing power; stable across economic cycles.
+BCVP,-5.6385,-12.3911,-6.0354,-11.9686,-4.1738,-3.9526,1.8616,-1.8616,True,True,True,Buy-side composite volume pressure. Demand-supply imbalance.
+CCI5,-3.8964,-8.5627,-4.2392,-8.4067,-2.6902,-2.5477,1.549,-1.549,True,True,True,Commodity Channel Index (5d). Overbought/oversold momentum.
+RBP,3.9343,8.646,3.6583,7.2547,5.0869,4.8174,1.4286,1.4286,True,True,True,Cross-sectional rank of BP. Robust value rank.
+OR_Growth2,4.3348,9.5262,4.0971,8.1248,5.4731,5.1831,1.376,1.376,True,True,True,YoY revenue growth (TTM). Top-line growth momentum.
+REP_TTM,5.9357,13.0442,5.6715,11.2469,7.0215,6.6494,1.35,1.35,True,True,True,Cross-sectional rank of EP_TTM. Robust to outliers.
+ROATTM,1.8472,4.0593,1.6554,3.2828,2.6792,2.5373,1.0238,1.0238,True,True,True,Return on assets (TTM). Asset efficiency; less sensitive to leverage.
+ACD5,-6.3733,-14.0058,-6.3833,-12.6584,-6.4184,-6.0782,-0.0351,0.0351,True,True,True,Accumulation/distribution 5-day. Short-term money-flow signal.
+PRank_1M,-2.6946,-5.9217,-2.6493,-5.2537,-2.8801,-2.7275,-0.2308,0.2308,True,True,True,Price level rank (1M). Relative price strength.
+E_Growth2,5.0639,11.1284,5.2181,10.3478,4.3674,4.1359,-0.8507,-0.8507,True,True,True,YoY earnings growth (TTM). Forward-looking quality signal.
+Expect_E_Growth,1.2153,2.6707,1.3915,2.7594,0.4621,0.4376,-0.9294,-0.9294,True,True,False,Analyst consensus EPS growth. Expectations-driven momentum.
+AmountIR5,9.4867,20.8477,9.7156,19.2667,8.752,8.2882,-0.9636,-0.9636,True,True,True,Volume information ratio (5d). Abnormal volume relative to baseline.
+DivR1,3.0884,6.7869,3.3396,6.6226,2.0037,1.8975,-1.3359,-1.3359,True,True,True,Dividend yield (1-year). Income floor; valued in risk-off periods.
+ROE,2.5919,5.6959,2.8667,5.6848,1.4641,1.3865,-1.4026,-1.4026,True,True,False,Return on equity (latest annual). Core quality factor.
+Rating,1.2994,2.8556,1.6228,3.2182,0.0253,0.0239,-1.5975,-1.5975,True,True,False,Analyst composite rating score. Sell-side sentiment.
+M4,-8.9497,-19.6677,-8.5821,-17.0188,-10.5807,-10.02,-1.9986,1.9986,True,True,True,4th-order return moment (kurtosis proxy). Tail-risk of the order-flow.
+BP,2.3133,5.0837,2.7023,5.3588,0.5485,0.5194,-2.1538,-2.1538,True,True,False,Book-to-price. Deep value factor; may lag in stress when fundamentals gap.
+FundsHoldPropT,1.4909,3.2764,1.906,3.7796,-0.32,-0.303,-2.226,-1.586,True,True,False,Fund holding proportion. Institutional demand; smart-money proxy.
+RT_6M,-1.9477,-4.2801,-1.4585,-2.8924,-4.0179,-3.805,-2.5594,2.5594,True,True,True,6-month price return. Longer-term momentum; prone to reversal in stress.
+StyleBias20,-4.4147,-9.7017,-3.9057,-7.7452,-6.4684,-6.1256,-2.5627,2.5627,True,True,True,Style bias momentum (20d). Measures drift in factor exposures.
+SP1_TTM,2.2617,4.9702,2.7888,5.5304,-0.0514,-0.0487,-2.8402,-2.7374,True,True,False,Sales yield (TTM). Revenue-based value; less distorted by leverage.
+Expect_EP,3.338,7.3356,3.8879,7.71,1.0298,0.9752,-2.8581,-2.8581,True,True,False,Analyst consensus earnings yield. Forward PE inversion.
+RT_3M,-2.7629,-6.0717,-2.1912,-4.3454,-5.2004,-4.9248,-3.0092,3.0092,True,True,True,3-month price return. Classic momentum horizon.
+EP_TTM,3.7129,8.1595,4.3836,8.693,1.1,1.0417,-3.2836,-3.2836,True,True,False,Earnings yield (TTM). Cheap stocks tend to outperform in calm markets.
+RT_2M,-3.3171,-7.2895,-2.6989,-5.3521,-6.0373,-5.7174,-3.3384,3.3384,True,True,True,2-month price return. Medium-term momentum.
+EBIT2MV,2.6101,5.7359,3.2968,6.5378,-0.198,-0.1875,-3.4948,-3.0988,True,True,False,EBIT/Market value. Enterprise value measure of cheapness.
+SHNum,-0.3912,-0.8597,0.369,0.7317,-3.9878,-3.7765,-4.3568,3.6188,False,False,True,Number of shareholders (inverse = concentrated ownership → strong hands).
