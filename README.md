@@ -108,26 +108,82 @@ The factor layer evaluates how predictive each signal is in cross-section. The m
 
 ### Representative Factor Sensitivity Table
 
-| Factor | ICIR_all | ICIR_normal | ICIR_abnormal | regime_sensitivity |
-| --- | --- | --- | --- | --- |
-| ILLIQ | 4.7874 | 4.0679 | 8.1286 | 4.0607 |
-| VOL_orth_ZS | -4.5905 | -5.3464 | -2.3759 | 2.9705 |
-| TO_1M | -3.6462 | -4.2651 | -1.4045 | 2.8606 |
-| Beta_orth_ZS | 1.0716 | 0.6349 | 2.7241 | 2.0892 |
-| GrossIncomeRatioTTM | 1.0115 | 0.668 | 2.5397 | 1.8717 |
-| BCVP | -5.6385 | -6.0354 | -4.1738 | 1.8616 |
-| CCI5 | -3.8964 | -4.2392 | -2.6902 | 1.549 |
-| RBP | 3.9343 | 3.6583 | 5.0869 | 1.4286 |
-| OR_Growth2 | 4.3348 | 4.0971 | 5.4731 | 1.376 |
-| REP_TTM | 5.9357 | 5.6715 | 7.0215 | 1.35 |
-| ROATTM | 1.8472 | 1.6554 | 2.6792 | 1.0238 |
-| ACD5 | -6.3733 | -6.3833 | -6.4184 | -0.0351 |
+The table below highlights representative factors with the largest regime differences. A positive
+`regime_sensitivity` means raw ICIR is higher in abnormal markets, but the economic interpretation
+still depends on sign. If a factor has negative ICIR in both regimes, the stronger regime is the
+one with the larger absolute ICIR.
+
+| Factor | Brief meaning | ICIR_all | ICIR_normal | ICIR_abnormal | regime_sensitivity |
+| --- | --- | --- | --- | --- | --- |
+| ILLIQ | Amihud illiquidity | 4.7874 | 4.0679 | 8.1286 | 4.0607 |
+| VOL_orth_ZS | Idiosyncratic volatility | -4.5905 | -5.3464 | -2.3759 | 2.9705 |
+| TO_1M | 1-month turnover | -3.6462 | -4.2651 | -1.4045 | 2.8606 |
+| Beta_orth_ZS | Orthogonalized beta | 1.0716 | 0.6349 | 2.7241 | 2.0892 |
+| GrossIncomeRatioTTM | Gross margin / profitability | 1.0115 | 0.668 | 2.5397 | 1.8717 |
+| BCVP | Buy-side volume pressure | -5.6385 | -6.0354 | -4.1738 | 1.8616 |
+| CCI5 | 5-day commodity channel index | -3.8964 | -4.2392 | -2.6902 | 1.549 |
+| RBP | Ranked book-to-price | 3.9343 | 3.6583 | 5.0869 | 1.4286 |
+| OR_Growth2 | Revenue growth | 4.3348 | 4.0971 | 5.4731 | 1.376 |
+| REP_TTM | Ranked earnings yield | 5.9357 | 5.6715 | 7.0215 | 1.35 |
+| ROATTM | Return on assets | 1.8472 | 1.6554 | 2.6792 | 1.0238 |
+| ACD5 | 5-day accumulation/distribution | -6.3733 | -6.3833 | -6.4184 | -0.0351 |
 
 Interpretation:
 
-- `ILLIQ`, `REP_TTM`, `OR_Growth2`, and `RBP` remain strong during stress.
-- `RT_2M` and `RT_3M` become meaningfully stronger in abnormal periods than some weaker benchmark members.
-- `ACD5` and `AmountIR5` are strong across both regimes, so they stay in both sleeves.
+- `ILLIQ`, `REP_TTM`, `RBP`, `OR_Growth2`, and `ROATTM` become stronger in abnormal markets,
+  which fits a stress narrative where liquidity scarcity, valuation dispersion, and operating
+  quality matter more than broad market beta.
+- `VOL_orth_ZS`, `TO_1M`, `BCVP`, and `CCI5` are negative-signed in both regimes and are
+  economically stronger in normal times because their absolute ICIR is larger there.
+- `ACD5` and `AmountIR5` are close to regime-agnostic, so they remain useful building blocks in
+  both the benchmark sleeve and the dynamic sleeve.
+
+### Economic Interpretation by Regime
+
+This section translates the factor names into economic themes so the regime split is intuitive
+rather than purely statistical.
+
+#### Factors that strengthen in abnormal markets
+
+- `ILLIQ` (Amihud illiquidity): illiquid stocks become more differentiated during stress because
+  funding pressure and risk aversion make liquidity itself a priced characteristic.
+- `REP_TTM` (ranked earnings yield) and `RBP` (ranked book-to-price): valuation spreads widen in
+  selloffs, so cheapness becomes more informative when investors aggressively reprice balance-sheet
+  risk and cash-flow durability.
+- `OR_Growth2` (revenue growth) and `ROATTM` (return on assets): in defensive markets, investors
+  reward businesses that still show real operating traction rather than purely narrative growth.
+- `Beta_orth_ZS` (orthogonalized beta): once market stress arrives, systematic risk exposure
+  becomes more visible cross-sectionally and therefore more useful for stock selection.
+- `RT_2M` and `RT_3M` (2- and 3-month price return): these are the two factors the dynamic sleeve
+  swaps in during abnormal periods, consistent with the idea that medium-horizon price action
+  contains crisis-specific information not fully captured by the static benchmark sleeve.
+
+#### Factors that are stronger in normal markets
+
+- `VOL_orth_ZS` (idiosyncratic volatility): the low-volatility effect is cleaner in normal times;
+  in stress episodes, broad deleveraging compresses the distinction between high- and low-vol
+  names.
+- `TO_1M` (1-month turnover): speculative trading intensity is more informative in stable markets,
+  while crisis periods push turnover higher across the board and make it noisier.
+- `BCVP` (buy-side volume pressure) and `CCI5` (5-day momentum oscillator): short-horizon
+  microstructure signals work better when market structure is orderly; in stressed markets they are
+  distorted by macro liquidation and policy shock flows.
+
+#### Factors that remain robust across both regimes
+
+- `AmountIR5` (abnormal short-term volume) and `ACD5` (accumulation/distribution) remain strong in
+  both normal and abnormal samples, which is why both sleeves keep them.
+- `M4` (fourth return moment / tail-risk proxy) is strongly predictive in both regimes, suggesting
+  that tail-shape information is structural rather than tied to only one market state.
+
+Overall economic picture:
+
+- normal markets favor cleaner implementation of valuation, low-volatility, and microstructure
+  signals,
+- abnormal markets favor liquidity, balance-sheet quality, and selective medium-horizon price
+  information,
+- the dynamic strategy is therefore best understood as a targeted stress overlay rather than a full
+  style rotation.
 
 ### Factor Distribution and Stability Plots
 
